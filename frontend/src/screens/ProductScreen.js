@@ -24,6 +24,13 @@ function ProductScreen() {
                 color={"#f8e825"}
               />
             </ListGroup.Item>
+
+            <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+
+            <ListGroup.Item>Description: {product.description}</ListGroup.Item>
+          </ListGroup>
+        </Col>
+
     </div>
   )
 }

@@ -15,7 +15,7 @@ function ProductScreen() {
     }
 
     fetchProduct();
-  }, []);
+  }, [id]);
 
   return (
     <div>

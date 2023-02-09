@@ -1,6 +1,7 @@
-from main.products import products
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
+from main.products import products
 
 
 @api_view(["GET"])

@@ -67,6 +67,21 @@ function CartScreen() {
                     </Form.Control>
                   </Col>
 
+                  <Col md={1}>
+                    <Button
+                      type="button"
+                      variant="light"
+                      onClick={() => removeFromCartHandler(item.product)}
+                    >
+                      <i className="fas fa-trash"></i>
+                    </Button>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        )}
+      </Col>
 }
 
 export default CartScreen;

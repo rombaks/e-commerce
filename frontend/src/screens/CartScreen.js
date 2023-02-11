@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { Link, useSearchParams, useParams } from "react-router-dom";
+import {
+  Link,
+  useSearchParams,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Row,
@@ -10,15 +15,19 @@ import {
   Button,
   Card,
 } from "react-bootstrap";
-import { Message } from "../components/Message";
-import { addToCart } from "../actions/cartActions";
+import Message from "../components/Message";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 function CartScreen() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [searchParams] = useSearchParams();
-  const qty = Number(searchParams.get("qty"))
+  const qty = Number(searchParams.get("qty"));
 
   const dispatch = useDispatch();
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
 
   useEffect(() => {
     if (id) {
@@ -106,6 +115,20 @@ function CartScreen() {
             </ListGroup.Item>
           </ListGroup>
 
+          <ListGroup.Item>
+            <Button
+              type="button"
+              className="btn-primary w-100"
+              disabled={cartItems.length === 0}
+              onClick={checkoutHandler}
+            >
+              Proceed to checkout
+            </Button>
+          </ListGroup.Item>
+        </Card>
+      </Col>
+    </Row>
+  );
 }
 
 export default CartScreen;

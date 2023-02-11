@@ -26,6 +26,14 @@ function CartScreen() {
     }
   }, [dispatch, id, qty]);
 
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
+  const checkoutHandler = () => {
+    navigate("/login?redirect=shipping");
+  };
+
   return (
     <Row>
       <Col md={8}>

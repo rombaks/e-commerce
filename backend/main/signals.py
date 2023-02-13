@@ -1,6 +1,5 @@
+from django.contrib.auth.models import User
 from django.db.models.signals import pre_save
-
-from .models import User
 
 
 def update_user(sender, instance, **kwargs):

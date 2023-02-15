@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import FormContainer from "../components/FormContainer";
-import { login, register } from "../actions/userActions";
+import { register } from "../actions/userActions";
 
 function RegisterScreen() {
   const [name, setName] = useState("");
@@ -21,7 +21,7 @@ function RegisterScreen() {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       setMessage("Passwords do not match");
     } else {
       dispatch(register(name, email, password));
@@ -52,7 +52,7 @@ function RegisterScreen() {
             required
             type="name"
             placeholder="Enter name"
-            value={email}
+            value={name}
             onChange={(event) => setName(event.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -98,7 +98,7 @@ function RegisterScreen() {
       <Row className="py-3">
         <Col>
           Have an Account?{" "}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/login/"}>
+          <Link to={redirect ? `/login?redirect=${redirect}` : "/login/"}>
             Sign In
           </Link>
         </Col>

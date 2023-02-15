@@ -1,7 +1,10 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import { logout } from "../actions/userActions";
 
 import { LinkContainer } from "react-router-bootstrap";
 

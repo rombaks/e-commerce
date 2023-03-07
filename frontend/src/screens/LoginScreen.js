@@ -20,7 +20,9 @@ function LoginScreen() {
     dispatch(login(email, password))
   };
 
-  const redirect = searchParams && "/";
+
+
+  const redirect = searchParams.get("redirect") ? searchParams.get("redirect") : "/";
 
   const userLogin = useSelector((state) => state.userLogin);
   const { error, loading, userInfo } = userLogin;
